@@ -1,6 +1,17 @@
 /*
-the function doublerAppend scales better because it uses push instead of unshift. Unshift rewrites every single element's id#, where push just adds it to the end. 
+The function doublerAppend scales better than doublerInsert because doublerAppend uses push instead of unshift. As doublerAppend scaled, it gets way way longer, but doublerAppend is pretty much shorter as the arrays get longer comparitively. Unshift rewrites every single element's id#, where push just adds it to the end, which doesn't rewried every single element's "address".
 
+// μs === microsecond === 0.000001 seconds
+// ms === millisecond === 0.001 seconds
+
+Below are the times for each function as scaled: 
+
+                  insertArr         appendArr:
+    'tiny'        '25.875 μs',      '70.125 μs',
+    'small'       '12.625 μs',      '11.458 μs',
+    'medium'      '154.209 μs',     '48.5 μs',
+    'large'       '9.529583 ms',    '421.916 μs',
+    'extraLarge'  '773.461833 ms'   '2.142416 ms'
 */
 
 const perf = require("execution-time")();
@@ -107,5 +118,40 @@ appendArr.push("extraLarge", resultsAppend.preciseWords);
 
 console.log({ insertArr }, { appendArr });
 
-// μs === microsecond === 0.000001
-// ms
+
+
+
+
+
+
+
+
+
+
+
+// The whole section below was me testing out functions in functions.js. I'm still confused, but that's okay. 
+
+// const isPanagram = (sentence) => {
+//   return (sentence.match(/([a-z])(?!.*\1)/g) || []).length === 26;
+// };
+
+// perf.start();
+// isPanagram("The quick brown fox jumps over the lazy dog!");
+// resultsAppend = perf.stop();
+// console.log("full correct thing", resultsAppend.preciseWords);
+// perf.start();
+// isPanagram("The quick brown fox jumps over the tired dog!");
+// resultsAppend = perf.stop();
+// console.log("long incorrect thing", resultsAppend.preciseWords);
+// perf.start();
+// isPanagram(
+//   "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+// );
+// resultsAppend = perf.stop();
+// console.log("tiny wrong", resultsAppend.preciseWords);
+// perf.start();
+// isPanagram(
+//   "Nathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victory!Nathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautiousthe queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victoryNathan broke cautious dental flowers by growing jelly monster petunias so as to be Lazarus by fixing the queen's victory"
+// );
+// resultsAppend = perf.stop();
+// console.log("large true", resultsAppend.preciseWords);

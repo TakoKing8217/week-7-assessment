@@ -1,9 +1,12 @@
 // Step 2: Write Code
 // 1) Sum Zero
-const addToZero = (num) => {
-  for (let i = 0; i < num.length; i++) {
-    for (let j = 1 + i; j < num.length; j++) {
-      if (num[i] + num[j] === 0) {
+
+// O(n^2) because it has two nested for loops. 
+
+const addToZero = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 1 + i; j < arr.length; j++) {
+      if (arr[i] + arr[j] === 0) {
         return true;
       }
     }
@@ -17,6 +20,9 @@ console.log(addToZero([1, 2, 3]), "should be false");
 console.log(addToZero([1, 2, 3, -2]), "should be true");
 
 // 2) Unique Character
+
+// O(n) because it will scale 1:1 consistently for however long the string is. 
+
 const hasUniqueChars = (str) => {
   let arr = [];
   let strArr = str.split("");
@@ -51,6 +57,9 @@ console.log(hasUniqueChars("Moma"), "should be false");
 // };
 
 // 3) Pangram Sentence
+
+// O(log n) I'm very unsure about this one. Since the longer the string is, the more likely there will be each letter of the alphabet is, it will be. But at the same time, it could be O(1) because the match function might just Zap the array. I will try to check on this. This one's runtime is strange. 
+
 const isPanagram = (sentence) => {
   return (sentence.match(/([a-z])(?!.*\1)/g) || []).length === 26;
 };
@@ -65,6 +74,9 @@ console.log(
 );
 
 // 4) Longest Word
+
+// O(n) because the array will loop once for each item in the array, thus increasing at a 1:1 rate.
+
 let findLongestWord = (arr) => {
   let longestLength = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -91,19 +103,3 @@ console.log(
 );
 console.log(findLongestWord(["hi", "I"]), "should be 1");
 
-// Time = O(n)
-
-function countLettersRoundTwo(str) {
-  str = str.toLowerCase().replace(/([^a-z])+/g, "");
-  console.log({ str });
-  let letters = {};
-
-  for (let i = 0; i < str.length; i++) {
-    if (letters.hasOwnProperty(str[i])) {
-      letters[str[i]]++;
-    } else {
-      letters[str[i]] = 0;
-    }
-  }
-  return letters;
-}
