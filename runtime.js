@@ -1,6 +1,8 @@
 /*
 The function doublerAppend scales better than doublerInsert because doublerAppend uses push instead of unshift. As doublerAppend scaled, it gets way way longer, but doublerAppend is pretty much shorter as the arrays get longer comparitively. Unshift rewrites every single element's id#, where push just adds it to the end, which doesn't rewried every single element's "address".
 
+doublerAppend is way faster once you get to midium and above, by a significant margin, but slower below medium. but basically the same for small. but it scales better, for sure.  
+
 // μs === microsecond === 0.000001 seconds
 // ms === millisecond === 0.001 seconds
 
@@ -118,18 +120,7 @@ appendArr.push("extraLarge", resultsAppend.preciseWords);
 
 console.log({ insertArr }, { appendArr });
 
-
-
-
-
-
-
-
-
-
-
-
-// The whole section below was me testing out functions in functions.js. I'm still confused, but that's okay. 
+// The whole section below was me testing out functions in functions.js. I'm still confused, but that's okay.
 
 // const isPanagram = (sentence) => {
 //   return (sentence.match(/([a-z])(?!.*\1)/g) || []).length === 26;

@@ -1,7 +1,8 @@
 // Step 2: Write Code
 // 1) Sum Zero
 
-// O(n^2) because it has two nested for loops. 
+// Time complexity is O(n^2) because it has two nested for loops, and the bigger the array is it will increase in time exponentially.
+// space complexity is 0(1) because no new information is being generated.
 
 const addToZero = (arr) => {
   for (let i = 0; i < arr.length; i++) {
@@ -21,7 +22,9 @@ console.log(addToZero([1, 2, 3, -2]), "should be true");
 
 // 2) Unique Character
 
-// O(n) because it will scale 1:1 consistently for however long the string is. 
+// time complexity: O(n) because it will scale 1:1 consistently for however long the string is.
+
+// space complexity: 0(n) I thing this will contain bigger information within the function due to there being an array within the function that will grow with how long the input is
 
 const hasUniqueChars = (str) => {
   let arr = [];
@@ -58,7 +61,9 @@ console.log(hasUniqueChars("Moma"), "should be false");
 
 // 3) Pangram Sentence
 
-// O(log n) I'm very unsure about this one. Since the longer the string is, the more likely there will be each letter of the alphabet is, it will be. But at the same time, it could be O(1) because the match function might just Zap the array. I will try to check on this. This one's runtime is strange. 
+// time complexity: O(log n) I'm very unsure about this one. Since the longer the string is, the more likely there will be each letter of the alphabet is, it will be. But at the same time, it could be O(1) because the match function might just Zap the array. I will try to check on this. This one's runtime is strange.
+
+// space complexity: O(1) because no new information is being generated, just working within what's there.
 
 const isPanagram = (sentence) => {
   return (sentence.match(/([a-z])(?!.*\1)/g) || []).length === 26;
@@ -75,7 +80,9 @@ console.log(
 
 // 4) Longest Word
 
-// O(n) because the array will loop once for each item in the array, thus increasing at a 1:1 rate.
+// time complexity: O(n) because the array will loop once for each item in the array, thus increasing at a 1:1 rate.
+
+// space complexity: 0(1) because there will always be the same amount of output regardless of how much is put into it.
 
 let findLongestWord = (arr) => {
   let longestLength = 0;
@@ -102,4 +109,3 @@ console.log(
   "should be 12"
 );
 console.log(findLongestWord(["hi", "I"]), "should be 1");
-
